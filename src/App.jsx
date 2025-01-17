@@ -15,6 +15,7 @@ import Test from "./test"
 function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  console.log('')
 
   useEffect(() => {
     // navigate('/')
