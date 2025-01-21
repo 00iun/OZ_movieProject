@@ -7,6 +7,13 @@ export const movieList = (lists) => {
     }
 }
 
+export const apiDataInfo = (info) => {
+    return {
+        type: 'apiDataInfo',
+        payload: info
+    }
+}
+
 export const movieDetail = (lists) => {
     return {
         type: 'movieDetail',
@@ -14,14 +21,36 @@ export const movieDetail = (lists) => {
     }
 }
 
+export const accountID = (key) => {
+    return {
+        type: 'accountID',
+        payload: key
+    }
+}
+
+// Reducer
+// Reducer
+// Reducer
+// Reducer
+// Reducer
 export const movieListReducer = (state = [], action) => {
     switch (action.type) {
         case 'movieList':
+            return state = state.concat(action.payload)
+        default:
+            return state
+    }
+}
+
+export const apiDataInfoReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'apiDataInfo':
             return state = action.payload
         default:
             return state
     }
 }
+
 export const movieDetailReducer = (state = [], action) => {
     switch (action.type) {
         case 'movieDetail':
@@ -31,8 +60,17 @@ export const movieDetailReducer = (state = [], action) => {
     }
 }
 
+export const accountIDReducer = (state = '', action) => {
+    switch (action.type) {
+        case 'accountID':
+            return state = action.payload
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
-    movieListReducer, movieDetailReducer
+    movieListReducer, movieDetailReducer, apiDataInfoReducer, accountIDReducer
 })
 
 export const store = legacy_createStore(rootReducer)

@@ -4,3 +4,4 @@ react-router-dom
 tailwindcss / postcss / autoprefixer
 redux / react-redux
 axios
+dotenv 
