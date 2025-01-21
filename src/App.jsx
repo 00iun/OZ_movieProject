@@ -12,7 +12,6 @@ import Test from "./test"
 
 function App() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   useEffect(() => {
     const Movies = async () => {
@@ -28,17 +27,17 @@ function App() {
       let apiInfo = (await axios.get('https://api.themoviedb.org/3/configuration', options)).data.images
       const response = (await axios.get(`https://api.themoviedb.org/3/movie/popular`, options)).data.results
       console.log(response)
-      console.log(apiInfo)
+      // console.log(apiInfo)
 
       const dataAll = []
       response.forEach((item) => {
         const inputData = {
           id: item.id,
-          title: item.original_name,
+          title: item.title,
           adult: item.adult,
           overview: item.overview,
           genres: item.genre_ids,
-          average: item.average,
+          average: item.vote_average,
           poster: item.poster_path,
         }
         dataAll.push(inputData)
